@@ -25,5 +25,5 @@ public class Main {
         System.out.println("Comparisons: " + sorter.getComparisons());
         System.out.println("Swaps: " + sorter.getSwaps());
         System.out.println("Time: " + sorter.getTimeMillis() + " ms");
-    }
+    }//1
 }
