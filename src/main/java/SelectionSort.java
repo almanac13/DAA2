@@ -5,7 +5,7 @@ public class SelectionSort {
     private double timeMillis = 0; // execution time in milliseconds
 
     /**
-     * Sorts the given array using Selection Sort with early termination optimization.
+     * Sorts the given array using Selection Sort.
      * Tracks comparisons, swaps, and execution time.
      * @param array the array to sort
      */
@@ -19,23 +19,17 @@ public class SelectionSort {
 
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
-            boolean swapped = false; // flag for early termination
 
             for (int j = i + 1; j < n; j++) {
                 comparisons++;
                 if (array[j] < array[minIndex]) {
                     minIndex = j;
-                    swapped = true;
                 }
             }
 
             if (minIndex != i) {
                 swap(array, i, minIndex);
-                swapped = true;
             }
-
-            // Early termination: no swaps in this pass means array is sorted
-            if (!swapped) break;
         }
 
         long endTime = System.nanoTime();
@@ -44,9 +38,6 @@ public class SelectionSort {
 
     /**
      * Swaps two elements in the array and counts the swap.
-     * @param array the array
-     * @param i first index
-     * @param j second index
      */
     private void swap(int[] array, int i, int j) {
         swaps++;
@@ -68,10 +59,7 @@ public class SelectionSort {
         return timeMillis;
     }
 
-    /**
-     * Utility method to print an array to the console.
-     * @param array the array to print
-     */
+    /** Utility method to print an array */
     public static void printArray(int[] array) {
         for (int num : array) {
             System.out.print(num + " ");
